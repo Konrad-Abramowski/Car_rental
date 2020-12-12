@@ -1,6 +1,7 @@
 package org.company.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -12,15 +13,15 @@ public class Account {
     @Column(name = "account_id")
     private int id;
 
-    @NotNull
+    @NotBlank(message = "Account`s login must not be empty!")
     @Column(name = "account_login")
     private String login;
 
-    @NotNull
+    @NotBlank(message = "Account`s password must not be empty!")
     @Column(name = "account_password")
     private String password;
 
-    @NotNull
+    @NotBlank(message = "Account`s email address must not be empty!")
     @Column(name = "account_email_address")
     private String emailAddress;
 
