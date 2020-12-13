@@ -3,6 +3,8 @@ package org.company.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Set;
 
 @Table
 @Entity(name = "cars")
@@ -50,8 +52,11 @@ public class Car {
     private int price;
 
     @NotNull
-    @Column(name = "car_brand")
+    @Column(name = "car_is_available")
     private boolean isAvailable;
+
+    @OneToMany(mappedBy = "car")
+    private Set<Loan> loans;
 
     public Car() {
     }
@@ -151,6 +156,14 @@ public class Car {
 
     public void setAvailable(final boolean available) {
         isAvailable = available;
+    }
+
+    public Set<Loan> getLoans() {
+        return loans;
+    }
+
+    public void setLoans(final Set<Loan> loans) {
+        this.loans = loans;
     }
 }
 

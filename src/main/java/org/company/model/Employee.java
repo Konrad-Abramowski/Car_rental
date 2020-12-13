@@ -31,7 +31,7 @@ public class Employee {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "employee_pesel")
+    @Column(name = "job")
     private Job job;
 
     @OneToOne(cascade = CascadeType.ALL)

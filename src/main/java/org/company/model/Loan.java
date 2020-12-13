@@ -25,14 +25,12 @@ public class Loan {
     @Column(name = "loan_price")
     private float price;
 
-    @OneToOne
-    @MapsId
-    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "client_id")
     private Client client;
 
-    @OneToOne
-    @MapsId
-    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "car_id")
     private Car car;
 
     public Loan() {

@@ -3,6 +3,9 @@ package org.company.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Table
 @Entity(name = "clients")
@@ -30,6 +33,9 @@ public class Client {
     @MapsId
     @NotNull
     private Address address;
+
+    @OneToMany(mappedBy = "client")
+    private Set<Loan> loans;
 
     public Client() {
     }
@@ -75,5 +81,13 @@ public class Client {
 
     public void setAddress(final Address address) {
         this.address = address;
+    }
+
+    public Set<Loan> getLoans() {
+        return loans;
+    }
+
+    public void setLoans(final Set<Loan> loans) {
+        this.loans = loans;
     }
 }
