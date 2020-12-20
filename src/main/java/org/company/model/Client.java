@@ -21,7 +21,7 @@ public class Client {
     private String firstName;
 
     @NotBlank(message = "Client`s last name must not be empty!")
-    @Column(name = "clients_last_name")
+    @Column(name = "client_last_name")
     private String lastName;
 
     @OneToOne(cascade = CascadeType.ALL)

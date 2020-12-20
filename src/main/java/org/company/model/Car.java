@@ -19,6 +19,10 @@ public class Car {
     @Column(name = "car_brand")
     private String brand;
 
+    @NotBlank(message = "Car`s model must not be empty!")
+    @Column(name = "car_model")
+    private String model;
+
     @NotBlank(message = "Car`s color must not be empty!")
     @Column(name = "car_color")
     private String color;
@@ -61,8 +65,9 @@ public class Car {
     public Car() {
     }
 
-    public Car(@NotBlank(message = "Car`s brand must not be empty!") final String brand, @NotBlank(message = "Car`s color must not be empty!") final String color, @NotBlank(message = "Car`s engine type must not be empty!") final String engineType, @NotNull final float engineCapacity, @NotBlank(message = "Car`s country of origin must not be empty!") final String countryOfOrigin, @NotBlank(message = "Car`s mileage must not be empty!") final float mileage, @NotNull final int productionYear, @NotBlank(message = "Car`s vin must not be empty!") final String vin, @NotNull final int price, @NotNull final boolean isAvailable) {
+    public Car(@NotBlank(message = "Car`s brand must not be empty!") final String brand, @NotBlank(message = "Car`s model must not be empty!") final String model, @NotBlank(message = "Car`s color must not be empty!") final String color, @NotBlank(message = "Car`s engine type must not be empty!") final String engineType, @NotNull final float engineCapacity, @NotBlank(message = "Car`s country of origin must not be empty!") final String countryOfOrigin, @NotBlank(message = "Car`s mileage must not be empty!") final float mileage, @NotNull final int productionYear, @NotBlank(message = "Car`s vin must not be empty!") final String vin, @NotNull final int price, @NotNull final boolean isAvailable) {
         this.brand = brand;
+        this.model = model;
         this.color = color;
         this.engineType = engineType;
         this.engineCapacity = engineCapacity;
@@ -84,6 +89,14 @@ public class Car {
 
     public void setBrand(final String brand) {
         this.brand = brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(final String model) {
+        this.model = model;
     }
 
     public String getColor() {

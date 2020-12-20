@@ -29,15 +29,15 @@ public class Address {
     @Column(name = "house_number")
     private String houseNumber;
 
-    @NotNull
+    @NotBlank(message = "Address` postal code must not be empty!")
     @Column(name = "postal_code")
-    private int postalCode;
+    private String postalCode;
 
 
     public Address() {
     }
 
-    public Address(@NotNull final String country, @NotNull final String city, @NotNull final String streetName, @NotNull final String houseNumber, @NotNull final int postalCode) {
+    public Address(@NotNull final String country, @NotNull final String city, @NotNull final String streetName, @NotNull final String houseNumber, @NotBlank String postalCode) {
         this.country = country;
         this.city = city;
         this.streetName = streetName;
@@ -81,11 +81,11 @@ public class Address {
         this.houseNumber = houseNumber;
     }
 
-    public int getPostalCode() {
+    public String getPostalCode() {
         return postalCode;
     }
 
-    public void setPostalCode(final int postalCode) {
+    public void setPostalCode(final String postalCode) {
         this.postalCode = postalCode;
     }
 }
