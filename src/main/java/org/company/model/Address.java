@@ -4,8 +4,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Table
-@Entity(name = "addresses")
+@Entity
+@Table(name = "addresses")
 public class Address {
 
     @Id

@@ -3,11 +3,10 @@ package org.company.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.Set;
 
-@Table
-@Entity(name = "cars")
+@Entity
+@Table(name = "cars")
 public class Car {
 
     @Id
