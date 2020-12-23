@@ -34,7 +34,7 @@ public class Client {
     @NotNull
     private Address address;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private Set<Loan> loans;
 
     public Client() {
