@@ -10,17 +10,17 @@ CREATE TABLE Employees (employee_id SERIAL NOT NULL, employee_pesel bigint NOT N
 
 CREATE TABLE Loans (loan_id SERIAL NOT NULL, loan_start_date date, loan_end_date date, loan_price float4, client_id int4 NOT NULL, car_id int4 NOT NULL, PRIMARY KEY (loan_id));
 
-ALTER TABLE Loans ADD CONSTRAINT FKLoans348432 FOREIGN KEY (client_id) REFERENCES Clients (client_id);
+ALTER TABLE Loans ADD CONSTRAINT FKLoans348432 FOREIGN KEY (client_id) REFERENCES Clients (client_id)  ON DELETE CASCADE;
 
-ALTER TABLE Loans ADD CONSTRAINT FKLoans434961 FOREIGN KEY (car_id) REFERENCES Cars (car_id);
+ALTER TABLE Loans ADD CONSTRAINT FKLoans434961 FOREIGN KEY (car_id) REFERENCES Cars (car_id) ON DELETE CASCADE;
 
-ALTER TABLE Employees ADD CONSTRAINT FKEmployees477375 FOREIGN KEY (address_id) REFERENCES Addresses (address_id);
+ALTER TABLE Employees ADD CONSTRAINT FKEmployees477375 FOREIGN KEY (address_id) REFERENCES Addresses (address_id) ON DELETE CASCADE;
 
-ALTER TABLE Employees ADD CONSTRAINT FKEmployees620423 FOREIGN KEY (account_id) REFERENCES Accounts (account_id);
+ALTER TABLE Employees ADD CONSTRAINT FKEmployees620423 FOREIGN KEY (account_id) REFERENCES Accounts (account_id) ON DELETE CASCADE;
 
-ALTER TABLE Clients ADD CONSTRAINT FKClients928633 FOREIGN KEY (account_id) REFERENCES Accounts (account_id);
+ALTER TABLE Clients ADD CONSTRAINT FKClients928633 FOREIGN KEY (account_id) REFERENCES Accounts (account_id) ON DELETE CASCADE;
 
-ALTER TABLE Clients ADD CONSTRAINT FKClients71682 FOREIGN KEY (address_id) REFERENCES Addresses (address_id);
+ALTER TABLE Clients ADD CONSTRAINT FKClients71682 FOREIGN KEY (address_id) REFERENCES Addresses (address_id) ON DELETE CASCADE;
 
 CREATE PROCEDURE sort_cars_by_price_asc()
 LANGUAGE SQL
