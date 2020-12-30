@@ -56,4 +56,18 @@ public class EmployeeDao implements Dao<Employee> {
             throw e;
         }
     }
+
+    public int login(String login, String password){
+        List employee=  em.createNativeQuery("select employees.employee_id  from employees \n" +
+                "inner join accounts using(account_id)\n" +
+                "where accounts.account_login = ?\n" +
+                "and accounts.account_password = ?").setParameter(1, login).setParameter(2, password).getResultList();
+
+        if(employee.isEmpty()){
+            return 0;
+        } else {
+            return (int) employee.get(0);
+        }
+
+    }
 }

@@ -7,6 +7,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -55,5 +56,19 @@ public class ClientDao implements Dao<Client> {
             tx.rollback();
             throw e;
         }
+    }
+
+    public int login(String login, String password){
+            List client=  em.createNativeQuery("select clients.client_id  from clients \n" +
+                    "inner join accounts using(account_id)\n" +
+                    "where accounts.account_login = ?\n" +
+                    "and accounts.account_password = ?").setParameter(1, login).setParameter(2, password).getResultList();
+
+        if(client.isEmpty()){
+            return 0;
+        } else {
+            return (int) client.get(0);
+        }
+
     }
 }

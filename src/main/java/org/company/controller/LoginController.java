@@ -3,17 +3,16 @@ package org.company.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import org.company.App;
+import org.company.model.Client;
 
 
 import java.io.IOException;
@@ -43,11 +42,31 @@ public class LoginController {
                 RadioButton selectedRadioButton = (RadioButton) userType.getSelectedToggle();
                 String selectedUserType = selectedRadioButton.getText();
                 if (selectedUserType.equals("Client")) {
-                    //ToDo client login
-                    SceneController.switchScenes(event, "client");
+                    int userId = App.clientDao.login(
+                            txtUsername.getText().trim(),
+                            txtPassword.getText().trim());
+                    if (userId != 0) {
+                        App.activeUserId = userId;
+                        SceneController.switchScenes(event, "client");
+                    } else {
+                        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        errorAlert.setHeaderText("Login error");
+                        errorAlert.setContentText("Bad credentials. Please login again.");
+                        errorAlert.showAndWait();
+                    }
                 } else {
-                    //ToDo employee login
-                    SceneController.switchScenes(event, "employee");
+                    int userId = App.employeeDao.login(
+                            txtUsername.getText().trim(),
+                            txtPassword.getText().trim());
+                    if (userId != 0) {
+                        App.activeUserId = userId;
+                        SceneController.switchScenes(event, "employee");
+                    } else {
+                        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                        errorAlert.setHeaderText("Login error");
+                        errorAlert.setContentText("Bad credentials. Please login again.");
+                        errorAlert.showAndWait();
+                    }
                 }
             }
         }
