@@ -34,15 +34,15 @@ public class Employee {
     @Column(name = "job")
     private Job job;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
-    @NotNull
-    private Address address;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
     @NotNull
     private Account account;
+
+    @OneToOne(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
+    @NotNull
+    private Address address;
 
     public Employee() {
     }

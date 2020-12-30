@@ -14,7 +14,7 @@ public class Account {
     private int id;
 
     @NotBlank(message = "Account`s login must not be empty!")
-    @Column(name = "account_login")
+    @Column(name = "account_login", unique = true)
     private String login;
 
     @NotBlank(message = "Account`s password must not be empty!")

@@ -22,13 +22,13 @@ public class Client {
     @Column(name = "client_last_name")
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id")
     @NotNull
     private Account account;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @MapsId
+    @OneToOne(cascade = CascadeType.ALL,  fetch = FetchType.LAZY)
+    @JoinColumn(name = "address_id")
     @NotNull
     private Address address;
 
