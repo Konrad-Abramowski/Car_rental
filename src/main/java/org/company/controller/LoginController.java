@@ -2,21 +2,11 @@ package org.company.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import org.company.App;
-import org.company.model.Client;
 
+import org.company.App;
 
 import java.io.IOException;
-
 
 public class LoginController {
 
@@ -47,7 +37,7 @@ public class LoginController {
                             txtPassword.getText().trim());
                     if (userId != 0) {
                         App.activeUserId = userId;
-                        SceneController.switchScenes(event, "client");
+                        SceneController.switchScenes(event, "client_panel");
                     } else {
                         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                         errorAlert.setHeaderText("Login error");
@@ -60,7 +50,7 @@ public class LoginController {
                             txtPassword.getText().trim());
                     if (userId != 0) {
                         App.activeUserId = userId;
-                        SceneController.switchScenes(event, "employee");
+                        SceneController.switchScenes(event, "employee_panel");
                     } else {
                         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
                         errorAlert.setHeaderText("Login error");
