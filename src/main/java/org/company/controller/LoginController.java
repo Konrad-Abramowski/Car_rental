@@ -44,10 +44,10 @@ public class LoginController {
                 String selectedUserType = selectedRadioButton.getText();
                 if (selectedUserType.equals("Client")) {
                     //ToDo client login
-
+                    SceneController.switchScenes(event, "client");
                 } else {
                     //ToDo employee login
-
+                    SceneController.switchScenes(event, "employee");
                 }
             }
         }
