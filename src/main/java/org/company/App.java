@@ -7,9 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.company.controller.SceneController;
-import org.company.dao.AccountDao;
-import org.company.dao.AddressDao;
+import org.company.dao.*;
 import org.company.model.Address;
+import org.company.model.Employee;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,8 +28,15 @@ public class App extends Application {
 
     public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Entities");
     public static EntityManager entityManager = entityManagerFactory.createEntityManager();
+
     public static AccountDao accountDao = new AccountDao(entityManager);
     public static AddressDao addressDao = new AddressDao(entityManager);
+    public static CarDao carDao = new CarDao(entityManager);
+    public static ClientDao clientDao = new ClientDao(entityManager);
+    public static EmployeeDao employeeDao = new EmployeeDao(entityManager);
+    public static LoanDao loanDao = new LoanDao(entityManager);
+
+    public static int activeUserId;
 
     @Override
     public void start(Stage stage) throws IOException {
