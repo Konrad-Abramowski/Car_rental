@@ -29,4 +29,13 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
+    public static void switchScenes(ActionEvent event, String fxml, String css) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        //stage.setMaximized(true);
+        Scene scene = SceneController.getSceneFromFxml(fxml);
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
