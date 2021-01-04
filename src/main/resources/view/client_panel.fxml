@@ -9,7 +9,7 @@
 <AnchorPane prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.company.controller.ClientPanelController">
 
     <Label alignment="CENTER" layoutX="343.0" layoutY="3.0" prefHeight="23.0" prefWidth="173.0" text="CLIENT MAIN PANEL" textFill="BLACK" />
-   <Button fx:id="btnShoppingCart" layoutX="148.0" layoutY="26.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="121.0" text="Shopping Cart" />
+   <Button fx:id="btnShoppingCart" layoutX="148.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnShoppingCartActionHandler" prefHeight="45.0" prefWidth="121.0" text="Shopping Cart" />
    <TableView fx:id="tableCars" layoutX="21.0" layoutY="82.0" prefHeight="411.0" prefWidth="817.0">
      <columns>
          <TableColumn fx:id="car_ID_col" maxWidth="100.0" prefWidth="75.0" text="Car ID" />
@@ -19,8 +19,9 @@
          <TableColumn fx:id="engine_cap_col" maxWidth="120.0" prefWidth="117.0" text="Engine Capacity" />
          <TableColumn fx:id="mileage_col" maxWidth="100.0" prefWidth="59.0" text="Mileage" />
          <TableColumn fx:id="year_col" maxWidth="120.0" prefWidth="119.0" text="Year of production" />
-         <TableColumn fx:id="price_col" maxWidth="100.0" prefWidth="88.0" text="Price" />
-         <TableColumn fx:id="availability_col" maxWidth="100.0" prefWidth="87.0" text="Availability" />
+         <TableColumn fx:id="price_col" maxWidth="100.0" prefWidth="51.0" text="Price" />
+         <TableColumn fx:id="availability_col" maxWidth="115.0" prefWidth="75.0" text="Availability" />
+         <TableColumn fx:id="btnAdd_col" maxWidth="85.0" prefWidth="85.0" text="Action" />
      </columns>
    </TableView>
    <Button fx:id="btnShowCars" layoutX="21.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnShowCarsActionHandler" prefHeight="45.0" prefWidth="121.0" text="Refresh Catalog" />
