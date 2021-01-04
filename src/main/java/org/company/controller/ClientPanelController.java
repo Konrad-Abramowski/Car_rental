@@ -82,9 +82,7 @@ public class ClientPanelController {
     }
     @FXML
     void btnShoppingCartActionHandler(ActionEvent event)throws IOException {
-        if(event.getSource()==btnShoppingCart){
-            SceneController.switchScenes(event, "client_panel_shopping_cart");
-        }
+        SceneController.switchScenes(event, "client_panel_shopping_cart");
     }
 
     @FXML

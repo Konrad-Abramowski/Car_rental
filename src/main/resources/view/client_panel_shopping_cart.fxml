@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.company.controller.ShoppingCartController">
    <children>
       <Label alignment="CENTER" layoutX="341.0" layoutY="14.0" prefHeight="23.0" prefWidth="173.0" text="SHOPPING CART" textFill="BLACK" />
       <TableView fx:id="tableCars" layoutX="55.0" layoutY="78.0" prefHeight="383.0" prefWidth="393.0">
@@ -26,7 +26,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnBackToClientPanel" layoutX="712.0" layoutY="26.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="128.0" text="Return to main panel" />
-      <Button fx:id="btnMakeReseravtion" layoutX="576.0" layoutY="26.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="128.0" text="Make a reservation" />
+      <Button fx:id="btnBackToClientPanel" layoutX="712.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnBackToClientPanelHandler" prefHeight="60.0" prefWidth="128.0" text="Return to main panel" />
+      <Button fx:id="btnMakeReservation" layoutX="576.0" layoutY="26.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="128.0" text="Make a reservation" />
    </children>
 </AnchorPane>
