@@ -1,4 +1,5 @@
 package org.company.controller;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
@@ -74,8 +75,14 @@ public class ClientPanelController {
         mileage_col.setCellValueFactory(new PropertyValueFactory<>("mileage"));
         year_col.setCellValueFactory(new PropertyValueFactory<>("productionYear"));
         price_col.setCellValueFactory(new PropertyValueFactory<>("price"));
-        availability_col.setCellValueFactory(new PropertyValueFactory<>("isAvailable"));
-
+        availability_col.setCellValueFactory(cellData -> new SimpleBooleanProperty(cellData.getValue().isAvailable()));
+        availability_col.setCellFactory(col -> new TableCell<>() {
+            @Override
+            protected void updateItem(Boolean item, boolean empty) {
+                super.updateItem(item, empty) ;
+                setText(empty ? null : item ? "Available" : "Unavailable" );
+            }
+        });
         tableCars.setItems(carsObservableList);
         addButtonsToTable();
 
