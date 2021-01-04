@@ -77,7 +77,7 @@ public class ClientPanelController {
         availability_col.setCellValueFactory(new PropertyValueFactory<>("isAvailable"));
 
         tableCars.setItems(carsObservableList);
-        addButtonToTable();
+        addButtonsToTable();
 
     }
     @FXML
@@ -93,17 +93,16 @@ public class ClientPanelController {
         SceneController.switchScenes(event,"login","view/css/login.css");
     }
 
-    private void addButtonToTable() {
+    private void addButtonsToTable() {
 
-        Callback<TableColumn<Car, Void>, TableCell<Car, Void>> cellFactory = new Callback<TableColumn<Car, Void>, TableCell<Car, Void>>() {
+        Callback<TableColumn<Car, Void>, TableCell<Car, Void>> cellFactory = new Callback<>() {
             @Override
             public TableCell<Car, Void> call(final TableColumn<Car, Void> param) {
-                return new TableCell<Car, Void>() {
+                return new TableCell<>() {
 
                     private final Button btn = new Button("Add to Cart");
 
                     {
-                        btn.centerShapeProperty();
                         // Action after button is clicked -> to change
                         btn.setOnAction((ActionEvent event) -> {
                             Car car = getTableView().getItems().get(getIndex());
