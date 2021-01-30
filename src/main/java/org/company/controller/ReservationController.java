@@ -5,8 +5,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.company.App;
 import org.company.model.Car;
-
+import java.time.temporal.ChronoUnit;
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -29,28 +30,44 @@ public class ReservationController {
     private Button btnConfirmReservation;
 
     @FXML
-    void btnConfirmReservationHandler(ActionEvent event) throws IOException {
+    private Button btnCalculateCost;
+
+    long daysOfLoan;
+
+    @FXML
+    void btnCalculateCostHandler(ActionEvent event) {
         LocalDate startDate = startDatePicker.getValue();
         LocalDate endDate = endDatePicker.getValue();
         if (LocalDate.now().compareTo(startDate)>0 ){
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setHeaderText("!");
-            errorAlert.showAndWait();
+            displayAllert("Incorrect dates!");
         }
-        if(startDate.compareTo(endDate) > 0){
-            System.out.println("gicior");
+        else if(startDate.compareTo(endDate) >= 0){
+            displayAllert("Start date cannot be after end Date!");
         }
-
-//        String [] startDateSplited = startDatePicker.toString().split("\\.");
-//        String [] endDateSplited = endDatePicker.toString().split("\\.");
-//        if (Integer.parseInt(startDateSplited[0]) < Integer.parseInt(endDateSplited[0]) &&
-//                Integer.parseInt(startDateSplited[1]) <= Integer.parseInt(endDateSplited[1]) &&
-//                Integer.parseInt(startDateSplited[2]) <= Integer.parseInt(endDateSplited[2])) {
-//        }
-        SceneController.switchScenes(event,"client_panel_shopping_cart");
+        else {
+            daysOfLoan = ChronoUnit.DAYS.between(startDate, endDate);
+            float totalCost = calculateReservationCost(ShoppingCartController.carsList);
+            totalCostTextField.setText(Float.toString(totalCost));
+        }
     }
 
-    private void calculateReservationCost(ArrayList<Car> carsList){
 
+    @FXML
+    void btnConfirmReservationHandler(ActionEvent event) throws IOException {
+        SceneController.switchScenes(event,"client_panel_shopping_cart");
+    }
+    private void  displayAllert(String allertText){
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setHeaderText(allertText);
+        errorAlert.showAndWait();
+    }
+
+    private float calculateReservationCost(ArrayList<Car> carsList){
+        float reservationCost = 0;
+        for (Car car:carsList
+             ) {
+            reservationCost += car.getPrice() * daysOfLoan;
+        }
+        return reservationCost;
     }
 }

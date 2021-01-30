@@ -45,7 +45,14 @@ public class ShoppingCartController {
 
     @FXML
     void btnMakeReservationHandler(ActionEvent event) throws IOException{
-        SceneController.switchScenes(event,"client_panel_make_reservation");
+        if (carsList.size()>0){
+            SceneController.switchScenes(event,"client_panel_make_reservation");
+        }
+        else{
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Your shopping cart must not be empty!");
+            errorAlert.showAndWait();
+        }
     }
 
     @FXML
