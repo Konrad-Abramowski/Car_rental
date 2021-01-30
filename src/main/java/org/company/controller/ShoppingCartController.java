@@ -44,6 +44,11 @@ public class ShoppingCartController {
     ObservableList<Car> carsInCartObservableList;
 
     @FXML
+    void btnMakeReservationHandler(ActionEvent event) throws IOException{
+        SceneController.switchScenes(event,"client_panel_make_reservation");
+    }
+
+    @FXML
     void btnBackToClientPanelHandler (ActionEvent event) throws IOException{
         SceneController.switchScenes(event,"client_panel");
     }

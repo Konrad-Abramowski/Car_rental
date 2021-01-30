@@ -4,29 +4,21 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.company.controller.ShoppingCartController">
    <children>
       <Label alignment="CENTER" layoutX="341.0" layoutY="14.0" prefHeight="23.0" prefWidth="173.0" text="SHOPPING CART" textFill="BLACK" />
-      <TableView fx:id="tableCars" layoutX="55.0" layoutY="78.0" prefHeight="383.0" prefWidth="393.0">
+      <TableView fx:id="tableCars" layoutX="94.0" layoutY="65.0" prefHeight="374.0" prefWidth="420.0">
          <columns>
             <TableColumn fx:id="car_ID_col" maxWidth="100.0" prefWidth="75.0" text="Car ID" />
             <TableColumn fx:id="brand_col" maxWidth="100.0" prefWidth="75.0" text="Brand" />
             <TableColumn fx:id="model_col" maxWidth="100.0" prefWidth="77.0" text="Model" />
             <TableColumn fx:id="price_col" maxWidth="100.0" prefWidth="70.0" text="Price" />
-            <TableColumn fx:id="remove_col" prefWidth="75.0" text="Action" />
+            <TableColumn fx:id="remove_col" text="Action" />
          </columns>
       </TableView>
-      <TextField fx:id="totalCostTextField" layoutX="514.0" layoutY="425.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="514.0" layoutY="385.0" prefHeight="31.0" prefWidth="149.0" text="Total cost:" textAlignment="CENTER">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnBackToClientPanel" layoutX="712.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnBackToClientPanelHandler" prefHeight="60.0" prefWidth="128.0" text="Return to main panel" />
-      <Button fx:id="btnMakeReservation" layoutX="576.0" layoutY="26.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="128.0" text="Make a reservation" />
+      <Button fx:id="btnBackToClientPanel" layoutX="584.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnBackToClientPanelHandler" prefHeight="60.0" prefWidth="128.0" text="Return to main panel" />
+      <Button fx:id="btnMakeReservation" layoutX="584.0" layoutY="122.0" mnemonicParsing="false" onAction="#btnMakeReservationHandler" prefHeight="60.0" prefWidth="128.0" text="Make a reservation" />
    </children>
 </AnchorPane>
