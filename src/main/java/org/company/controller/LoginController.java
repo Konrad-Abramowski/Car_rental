@@ -18,6 +18,8 @@ public class LoginController {
     private ToggleGroup userType;
     @FXML
     private Button btnSignin;
+    @FXML
+    private Button btnSignup;
 
     @FXML
     public void handleButtonAction(ActionEvent event) throws IOException {
@@ -59,6 +61,8 @@ public class LoginController {
                     }
                 }
             }
+        } else if (event.getSource() == btnSignup){
+            SceneController.switchScenes(event, "register");
         }
     }
 }
