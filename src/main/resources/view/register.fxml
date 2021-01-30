@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.company.controller.RegisterController">
+<children>
+    <Pane prefHeight="503.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
+    </Pane>
+    <JFXTextField fx:id="firstNameTF" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0" promptText="First Name" />
+    <JFXTextField fx:id="loginTF" focusColor="#48a5ea" layoutX="133.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0" promptText="Login" />
+    <JFXTextField fx:id="emailTF" focusColor="#48a5ea" layoutX="133.0" layoutY="283.0" prefHeight="25.0" prefWidth="217.0" promptText="Email Address" />
+    <JFXTextField fx:id="lastNameTF" focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0" promptText="Last Name" />
+    <JFXPasswordField fx:id="passwordTF" focusColor="#48a5ea" layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0" promptText="Password" />
+    <JFXTextField fx:id="streetTF"  focusColor="#48a5ea" layoutX="418.0" layoutY="283.0" prefHeight="25.0" prefWidth="94.0" promptText="Street name" />
+    <JFXTextField fx:id="houseTF" focusColor="#48a5ea" layoutX="535.0" layoutY="283.0" prefHeight="25.0" prefWidth="94.0" promptText="House nr" />
+    <Label layoutX="133.0" layoutY="31.0" text="Basic Details" textFill="#48a5ea">
+        <font>
+            <Font name="System Bold" size="16.0" />
+        </font>
+    </Label>
+    <JFXTextField  fx:id="countryTF" focusColor="#48a5ea" layoutX="133.0" layoutY="224.0" prefHeight="25.0" prefWidth="217.0" promptText="Country" />
+    <JFXTextField  fx:id="postalCodeTF" focusColor="#48a5ea" layoutX="418.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0" promptText="Postal code" />
+    <JFXTextField  fx:id="cityTF" focusColor="#48a5ea" layoutX="535.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0" promptText="City" />
+    <JFXButton fx:id="returnBtn" onAction="#handleButtonAction" layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #48A5EA;" text="Go back" textFill="WHITE" />
+    <JFXButton fx:id="addClientBtn" onAction="#handleButtonAction" layoutX="524.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #48A5EA;" text="Continue" textFill="WHITE" />
+    <Separator layoutX="133.0" layoutY="68.0" prefHeight="1.0" prefWidth="520.0" />
+</children>
+</AnchorPane>

@@ -8016,3 +8016,16 @@ insert into Loans (loan_id, loan_start_date, loan_end_date, loan_price, client_i
 insert into Loans (loan_id, loan_start_date, loan_end_date, loan_price, client_id, car_id) values (998, '2020-07-06 15:55:37', '2021-07-01 21:43:42', 1451.16, 218, 588);
 insert into Loans (loan_id, loan_start_date, loan_end_date, loan_price, client_id, car_id) values (999, '2020-02-25 08:47:39', '2021-08-20 17:25:55', 603.44, 343, 550);
 insert into Loans (loan_id, loan_start_date, loan_end_date, loan_price, client_id, car_id) values (1000, '2020-01-29 05:08:10', '2021-09-26 13:26:53', 9414.57, 171, 393);
+
+-- reset the sequence, regardless whether table has rows or not:
+SELECT setval(pg_get_serial_sequence('Accounts', 'account_id'), coalesce(max(account_id),0) + 1, false) FROM Accounts;
+
+SELECT setval(pg_get_serial_sequence('Addresses', 'address_id'), coalesce(max(address_id),0) + 1, false) FROM Addresses;
+
+SELECT setval(pg_get_serial_sequence('Cars', 'car_id'), coalesce(max(car_id),0) + 1, false) FROM Cars;
+
+SELECT setval(pg_get_serial_sequence('Clients', 'client_id'), coalesce(max(client_id),0) + 1, false) FROM Clients;
+
+SELECT setval(pg_get_serial_sequence('Employees', 'employee_id'), coalesce(max(employee_id),0) + 1, false) FROM Employees;
+
+SELECT setval(pg_get_serial_sequence('Loans', 'loan_id'), coalesce(max(loan_id),0) + 1, false) FROM Loans;
