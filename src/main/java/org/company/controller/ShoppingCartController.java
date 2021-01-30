@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import org.company.model.Car;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,6 +26,9 @@ public class ShoppingCartController {
 
     @FXML
     private TableColumn<Car, Integer> price_col;
+
+    @FXML
+    private TableColumn<Car, Void> remove_col;
 
     @FXML
     private TextField totalCostTextField;
@@ -61,7 +65,40 @@ public class ShoppingCartController {
         price_col.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         tableCars.setItems(carsInCartObservableList);
+        addButtonsToTable();
     }
+    private void addButtonsToTable() {
 
+        Callback<TableColumn<Car, Void>, TableCell<Car, Void>> cellFactory = new Callback<>() {
+            @Override
+            public TableCell<Car, Void> call(final TableColumn<Car, Void> param) {
+                return new TableCell<>() {
+
+                    private final Button btn = new Button("Remove");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            Car car = getTableView().getItems().get(getIndex());
+                            carsList.remove(car);
+                            showCarsInCart();
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+            }
+        };
+
+        remove_col.setCellFactory(cellFactory);
+
+    }
 
 }
