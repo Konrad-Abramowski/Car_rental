@@ -1,6 +1,6 @@
 -- ACCOUNTS
 
-insert into Accounts (account_id, account_login, account_password, account_email_address) values (1, 'ltry0', 'M5ec8p9d', 'mbetancourt0@smugmug.com');
+insert into Accounts (account_id, account_login, account_password, account_email_address) values (1, 'client', 'client', 'mbetancourt0@smugmug.com');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (2, 'leckert1', 'CD1LylZ4d1s', 'aburdass1@bluehost.com');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (3, 'gcalley2', 'zvVwmYEI', 'ppacitti2@npr.org');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (4, 'cjouhning3', 'nH3AjVj1Qk', 'sscarce3@loc.gov');
@@ -1000,7 +1000,7 @@ insert into Accounts (account_id, account_login, account_password, account_email
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (998, 'jlarcherrp', 'cYyC6f', 'prumminrp@narod.ru');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (999, 'fcarnockrq', 'vd27WN5Qn', 'mmellodeyrq@topsy.com');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (1000, 'lnairerr', '6M0zNLcF', 'amatherr@webs.com');
-insert into Accounts (account_id, account_login, account_password, account_email_address) values (1001, 'vmauger0', 'OEnhrMy', 'jwildsmith0@bizjournals.com');
+insert into Accounts (account_id, account_login, account_password, account_email_address) values (1001, 'employee', 'employee', 'jwildsmith0@bizjournals.com');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (1002, 'vmackinnon1', 'OHs4Nmx', 'cgoodsir1@wordpress.org');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (1003, 'dcasolla2', 'Kn6HBWcr', 'dallanby2@jigsy.com');
 insert into Accounts (account_id, account_login, account_password, account_email_address) values (1004, 'ndesport3', 'D8wvZFCiV', 'ehouldin3@mlb.com');
