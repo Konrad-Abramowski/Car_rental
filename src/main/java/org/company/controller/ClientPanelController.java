@@ -1,18 +1,15 @@
 package org.company.controller;
+
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TableCell;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
 import org.company.App;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import org.company.model.Car;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -63,6 +60,24 @@ public class ClientPanelController {
 
     @FXML
     void btnShowCarsActionHandler() {
+        showCarsInClientPanel();
+    }
+    @FXML
+    void btnShoppingCartActionHandler(ActionEvent event)throws IOException {
+        SceneController.switchScenes(event, "client_panel_shopping_cart");
+    }
+
+    @FXML
+    void btnLogOutActionHandler(ActionEvent event) throws IOException {
+        App.activeUserId = 0;
+        SceneController.switchScenes(event,"login","view/css/login.css");
+    }
+
+    public void initialize(){
+        showCarsInClientPanel();
+    }
+
+    private void showCarsInClientPanel(){
 
         List<Car> carsList = App.carDao.getAll();
         carsObservableList = FXCollections.observableArrayList(carsList);
@@ -85,17 +100,6 @@ public class ClientPanelController {
         });
         tableCars.setItems(carsObservableList);
         addButtonsToTable();
-
-    }
-    @FXML
-    void btnShoppingCartActionHandler(ActionEvent event)throws IOException {
-        SceneController.switchScenes(event, "client_panel_shopping_cart");
-    }
-
-    @FXML
-    void btnLogOutActionHandler(ActionEvent event) throws IOException {
-        App.activeUserId = 0;
-        SceneController.switchScenes(event,"login","view/css/login.css");
     }
 
     private void addButtonsToTable() {
@@ -108,10 +112,23 @@ public class ClientPanelController {
                     private final Button btn = new Button("Add to Cart");
 
                     {
-                        // Action after button is clicked -> to change
                         btn.setOnAction((ActionEvent event) -> {
                             Car car = getTableView().getItems().get(getIndex());
-                            System.out.println("selectedCar ID: " + car.getId());
+                            if (!car.isAvailable())
+                            {
+                                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                                errorAlert.setHeaderText("Sorry, this car in now unavailable!");
+                                errorAlert.showAndWait();
+                            }
+                            else if(!ShoppingCartController.carsList.contains(car)){
+                                ShoppingCartController.carsList.add(car);
+
+                            }
+                            else{
+                                Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+                                errorAlert.setHeaderText("This car is already in your shopping cart!");
+                                errorAlert.showAndWait();
+                            }
                         });
                     }
 
