@@ -52,18 +52,24 @@ public class ReservationController {
 
     @FXML
     void btnCalculateCostHandler(ActionEvent event) {
-        startLoanDate = startDatePicker.getValue();
-        endLoanDate = endDatePicker.getValue();
-        if (LocalDate.now().compareTo(startLoanDate)>0 ){
-            displayAllert("Incorrect dates!");
-        }
-        else if(startLoanDate.compareTo(endLoanDate) >= 0){
-            displayAllert("Incorrect dates!");
+
+        if(startDatePicker.getValue() == null || endDatePicker.getValue() ==null ){
+            displayAllert("You have to select dates first!");
         }
         else {
-            daysOfLoan = ChronoUnit.DAYS.between(startLoanDate, endLoanDate);
-            float totalCost = calculateReservationCost(ShoppingCartController.carsList);
-            totalCostTextField.setText(Float.toString(totalCost));
+            startLoanDate = startDatePicker.getValue();
+            endLoanDate = endDatePicker.getValue();
+            if (LocalDate.now().compareTo(startLoanDate)>0 ){
+                displayAllert("Incorrect dates!");
+            }
+            else if(startLoanDate.compareTo(endLoanDate) >= 0){
+                displayAllert("Incorrect dates!");
+            }
+            else {
+                daysOfLoan = ChronoUnit.DAYS.between(startLoanDate, endLoanDate);
+                float totalCost = calculateReservationCost(ShoppingCartController.carsList);
+                totalCostTextField.setText(Float.toString(totalCost));
+            }
         }
     }
 
