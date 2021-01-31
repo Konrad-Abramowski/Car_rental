@@ -92,11 +92,6 @@ public class RegisterController {
                 Client client = new Client(firstName,lastName,account,address);
                 App.clientDao.create(client);
                 SceneController.switchScenes(event, "login", "view/css/login.css");
-                } else {
-                    Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                    errorAlert.setHeaderText("Login error");
-                    errorAlert.setContentText("Bad credentials. Please login again.");
-                    errorAlert.showAndWait();
                 }
             } else if (event.getSource() == returnBtn){
             SceneController.switchScenes(event, "login", "view/css/login.css");
