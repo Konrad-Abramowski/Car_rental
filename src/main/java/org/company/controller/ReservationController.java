@@ -36,9 +36,20 @@ public class ReservationController {
     @FXML
     private Button btnCalculateCost;
 
+
+    @FXML
+    private Button btnRejectReservation;
+
+
     long daysOfLoan;
     LocalDate startLoanDate;
     LocalDate endLoanDate;
+
+    @FXML
+    void btnRejectReservationHandler(ActionEvent event) throws IOException {
+        SceneController.switchScenes(event, "client_panel_shopping_cart");
+    }
+
     @FXML
     void btnCalculateCostHandler(ActionEvent event) {
         startLoanDate = startDatePicker.getValue();
@@ -67,6 +78,8 @@ public class ReservationController {
                 Client client = App.clientDao.get(App.activeUserId).get();
                 Loan loan = new Loan(localStartDateTime, localEndDateTime, price, client, car);
                 App.loanDao.create(loan);
+                car.setAvailable(false);
+                App.carDao.update(car);
             }
             ShoppingCartController.carsList.clear();
 
