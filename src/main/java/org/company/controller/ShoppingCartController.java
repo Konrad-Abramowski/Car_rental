@@ -31,9 +31,6 @@ public class ShoppingCartController {
     private TableColumn<Car, Void> remove_col;
 
     @FXML
-    private TextField totalCostTextField;
-
-    @FXML
     private Button btnBackToClientPanel;
 
     @FXML

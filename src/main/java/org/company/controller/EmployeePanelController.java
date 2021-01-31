@@ -46,8 +46,6 @@ public class EmployeePanelController {
     @FXML
     private TableColumn<Car, Void> btnAdd_col;
 
-    ObservableList<Car> carsObservableList;
-
     @FXML
     void btnShowCarsActionHandler() {
         showCarsInClientPanel();
@@ -70,7 +68,7 @@ public class EmployeePanelController {
     private void showCarsInClientPanel(){
 
         List<Car> carsList = App.carDao.getAll();
-        carsObservableList = FXCollections.observableArrayList(carsList);
+        ObservableList<Car> carsObservableList = FXCollections.observableArrayList(carsList);
 
         // car_ID_col.setCellValueFactory(new PropertyValueFactory<>("id"));
         brand_col.setCellValueFactory(new PropertyValueFactory<>("brand"));
