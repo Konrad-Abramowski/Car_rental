@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.company.controller.AddCarController">
+    <children>
+        <Pane prefHeight="503.0" prefWidth="110.0" style="-fx-background-color: #48A5EA;">
+        </Pane>
+        <JFXTextField fx:id="brandTF" focusColor="#48a5ea" layoutX="133.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0" promptText="Brand" />
+        <JFXTextField fx:id="modelTF" focusColor="#48a5ea" layoutX="418.0" layoutY="92.0" prefHeight="25.0" prefWidth="217.0" promptText="Model" />
+        <JFXTextField fx:id="engineTypeTF" focusColor="#48a5ea" layoutX="133.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0" promptText="Engine type" />
+        <JFXTextField fx:id="mileageTF" focusColor="#48a5ea" layoutX="418.0" layoutY="157.0" prefHeight="25.0" prefWidth="217.0" promptText="Mileage" />
+        <JFXTextField  fx:id="countryOfOriginTF" focusColor="#48a5ea" layoutX="133.0" layoutY="224.0" prefHeight="25.0" prefWidth="217.0" promptText="Country of origin" />
+        <JFXTextField  fx:id="productionYearTF" focusColor="#48a5ea" layoutX="418.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0" promptText="Production year" />
+        <JFXTextField  fx:id="vinTF" focusColor="#48a5ea" layoutX="535.0" layoutY="224.0" prefHeight="25.0" prefWidth="94.0" promptText="Vin" />
+        <JFXTextField fx:id="engineCapacityTF" focusColor="#48a5ea" layoutX="133.0" layoutY="283.0" prefHeight="25.0" prefWidth="217.0" promptText="Engine capacity" />
+        <JFXTextField fx:id="priceTF"  focusColor="#48a5ea" layoutX="418.0" layoutY="283.0" prefHeight="25.0" prefWidth="94.0" promptText="Price" />
+        <JFXTextField fx:id="colorTF" focusColor="#48a5ea" layoutX="535.0" layoutY="283.0" prefHeight="25.0" prefWidth="94.0" promptText="Color" />
+        <Label layoutX="133.0" layoutY="31.0" text="Basic Car Details" textFill="#48a5ea">
+            <font>
+                <Font name="System Bold" size="16.0" />
+            </font>
+        </Label>
+
+        <JFXButton fx:id="returnBtn" onAction="#handleButtonAction" layoutX="133.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #48A5EA;" text="Go back" textFill="WHITE" />
+        <JFXButton fx:id="addClientBtn" onAction="#handleButtonAction" layoutX="524.0" layoutY="349.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #48A5EA;" text="Continue" textFill="WHITE" />
+        <Separator layoutX="133.0" layoutY="68.0" prefHeight="1.0" prefWidth="520.0" />
+    </children>
+</AnchorPane>

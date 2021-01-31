@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="503.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.company.controller.EmployeePanelController">
 
-    <Label alignment="CENTER" layoutX="341.0" layoutY="14.0" prefHeight="23.0" prefWidth="173.0" text="EMPLOYEE MAIN PANEL" textFill="BLACK" />
-   <TableView layoutX="183.0" layoutY="102.0" prefHeight="299.0" prefWidth="490.0">
-     <columns>
-       <TableColumn prefWidth="75.0" text="C1" />
-       <TableColumn prefWidth="75.0" text="C2" />
-     </columns>
-   </TableView>
+    <Button fx:id="btnAddCar" layoutX="148.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnAddCarActionHandler" prefHeight="45.0" prefWidth="121.0" text="Add new car" />
+    <Label alignment="CENTER" layoutX="343.0" layoutY="3.0" prefHeight="23.0" prefWidth="173.0" text="EMPLOYEE MAIN PANEL" textFill="BLACK" />
+    <TableView fx:id="tableCars" layoutX="21.0" layoutY="82.0" prefHeight="411.0" prefWidth="817.0">
+        <columns>
+            <TableColumn fx:id="brand_col" maxWidth="100.0" prefWidth="75.0" text="Brand" />
+            <TableColumn fx:id="model_col" maxWidth="100.0" prefWidth="59.0" text="Model" />
+            <TableColumn fx:id="engine_type_col" maxWidth="100.0" prefWidth="79.0" text="Engine Type" />
+            <TableColumn fx:id="engine_cap_col" maxWidth="120.0" prefWidth="117.0" text="Engine Capacity" />
+            <TableColumn fx:id="mileage_col" maxWidth="100.0" prefWidth="59.0" text="Mileage" />
+            <TableColumn fx:id="year_col" maxWidth="120.0" prefWidth="119.0" text="Year of production" />
+            <TableColumn fx:id="price_col" maxWidth="100.0" prefWidth="51.0" text="Price" />
+            <TableColumn fx:id="availability_col" maxWidth="115.0" prefWidth="75.0" text="Availability" />
+            <TableColumn fx:id="btnAdd_col" maxWidth="85.0" prefWidth="85.0" text="Actions" />
+        </columns>
+    </TableView>
+    <Button fx:id="btnShowCars" layoutX="21.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnShowCarsActionHandler" prefHeight="45.0" prefWidth="121.0" text="Refresh Catalog" />
+    <Button fx:id="btnLogOut" layoutX="717.0" layoutY="26.0" mnemonicParsing="false" onAction="#btnLogOutActionHandler" prefHeight="45.0" prefWidth="121.0" text="Log out" />
+
 
 </AnchorPane>
+
